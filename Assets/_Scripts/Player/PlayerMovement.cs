@@ -96,7 +96,18 @@ public class PlayerMovement: MonoBehaviour
             rb.drag = 1;
         }
 
-        rb.AddRelativeForce(direction * 10);
+        if (!front && !back)
+        {
+            rb.AddRelativeForce(direction * 10);
+        }
+        else
+        {
+            rb.AddRelativeForce(new Vector3(0, 0, direction.z * 10));
+        }
+        
+        
+
+        
 
         animator.SetBool("Front", front);
         animator.SetBool("Back", back);
