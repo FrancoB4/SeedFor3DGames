@@ -13,7 +13,7 @@ public class PlayerRotation : MonoBehaviour
     private void Start()
     {
         mouseSpeed = 2.5f;
-        horizontalSpeed = 0.1f;
+        horizontalSpeed = 0.25f;
     }
 
     void Update()
@@ -27,6 +27,11 @@ public class PlayerRotation : MonoBehaviour
         {
             transform.eulerAngles += horizontalSpeed * new Vector3(0, 
                                                             Input.GetAxis("Horizontal"), 0);
+        }
+        else if (Input.GetKey(KeyCode.S) && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)))
+        {
+            transform.eulerAngles += horizontalSpeed * new Vector3(0,
+                                                            -Input.GetAxis("Horizontal"), 0);
         }
     }
 }
