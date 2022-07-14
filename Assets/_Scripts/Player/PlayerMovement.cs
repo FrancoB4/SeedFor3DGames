@@ -105,10 +105,6 @@ public class PlayerMovement: MonoBehaviour
             rb.AddRelativeForce(new Vector3(0, 0, direction.z * 10));
         }
         
-        
-
-        
-
         animator.SetBool("Front", front);
         animator.SetBool("Back", back);
         animator.SetBool("Left", left);
