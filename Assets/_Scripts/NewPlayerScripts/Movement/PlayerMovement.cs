@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewPlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
-    public float speed;
-    public float runSpeed;
+    public float hSpeed, vSpeed, runSpeed;
+
+    float horizontal, vertical;
 
     public Rigidbody rb;
 
-    AnimationController animControl;
+    Inputs inputs;
 
     Vector3 speedVector;
     Vector3 lastPosition;
@@ -23,12 +24,13 @@ public class NewPlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         speedVector = Vector3.zero;
-        lastPosition = transform.position;
+        lastPosition = transform.localPosition;
 
-        speed = 0.17f;
+        hSpeed = 0.17f;
+        vSpeed = 0.1f;
         runSpeed = 3.5f;
 
-        animControl = GetComponent<AnimationController>();
+        inputs = GetComponent<Inputs>();
     }
 
 
@@ -41,19 +43,17 @@ public class NewPlayerMovement : MonoBehaviour
             count = 0;
         }
 
-        float forward = Input.GetAxis("Vertical");
-        float sides = Input.GetAxis("Horizontal");
+        horizontal = inputs.GetHorizontalAxis();
+        vertical = inputs.GetVerticalAxis();
 
-        float polarizedForward = Polarize(forward);
-        float polarizedSides = Polarize(sides);
-
-        Vector3 direction = new Vector3(polarizedSides, 0, polarizedForward);
+        Vector3 direction = new(horizontal, 0, vertical);
 
         if (Input.GetKey(KeyCode.LeftShift) && direction != Vector3.zero)
         {
             if (!run)
             {
-                speed *= runSpeed;
+                hSpeed *= runSpeed;
+                vSpeed *= runSpeed;
                 run = true;
             }
         }
@@ -62,15 +62,14 @@ public class NewPlayerMovement : MonoBehaviour
             if (run)
             {
                 run = false;
-                speed /= runSpeed;
+                hSpeed /= runSpeed;
+                vSpeed /= runSpeed;
             }
         }
 
-        animControl.SetAnimValues(direction, run);
-
-        if (speedVector.x > -speed && speedVector.x < speed &&
-            speedVector.y > -speed && speedVector.y < speed &&
-            speedVector.z > -speed && speedVector.z < speed)
+        if (speedVector.x > -hSpeed && speedVector.x < hSpeed &&
+            speedVector.y > -hSpeed && speedVector.y < hSpeed &&
+            speedVector.z > -hSpeed && speedVector.z < hSpeed)
         {
             MovePlayer(direction);
         }
@@ -95,29 +94,6 @@ public class NewPlayerMovement : MonoBehaviour
             rb.drag = 1;
         }
 
-        if (direction.z == 0)
-        {
-            rb.AddRelativeForce(direction * 10);
-        }
-        else
-        {
-            rb.AddRelativeForce(new Vector3(0, 0, direction.z * 10));
-        }
-    }
-
-    private float Polarize(float n)
-    {
-        if (n > 0)
-        {
-            return 1f;
-        }
-        else if (n < 0)
-        {
-            return -1f;
-        }
-        else
-        {
-            return 0f;
-        }
+        rb.AddRelativeForce(direction * 10);
     }
 }

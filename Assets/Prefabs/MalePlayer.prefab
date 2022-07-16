@@ -1438,13 +1438,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6452123846030904298}
-  - component: {fileID: 8430615948900182478}
-  - component: {fileID: 6409195614962457621}
   - component: {fileID: 4112537323550640187}
-  - component: {fileID: 3025707403271174623}
+  - component: {fileID: 1402521148273521507}
   - component: {fileID: 1830421328804019529}
-  - component: {fileID: 5931429319204707014}
-  - component: {fileID: 5544230382805271217}
+  - component: {fileID: 1865975613472428186}
+  - component: {fileID: 6409195614962457621}
+  - component: {fileID: 5799253035912629362}
+  - component: {fileID: 8627502339691951319}
   m_Layer: 0
   m_Name: MalePlayer
   m_TagString: Untagged
@@ -1471,38 +1471,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8430615948900182478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5963149467012010320}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 879363f871a3bac4c9c8d4c9c1e13514, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  life: 0
-  speed: 0
-  runSpeed: 0
-  rb: {fileID: 0}
-  transf: {fileID: 0}
---- !u!114 &6409195614962457621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5963149467012010320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abbdc5655f053ee41bd923aa6cbc5eef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mouseSpeed: 0
-  horizontalSpeed: 0
-  centerRotation: {fileID: 0}
 --- !u!136 &4112537323550640187
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1517,7 +1485,7 @@ CapsuleCollider:
   m_Height: 1.8608598
   m_Direction: 1
   m_Center: {x: 0.0002975464, y: 0.8798891, z: -0.010734558}
---- !u!54 &3025707403271174623
+--- !u!54 &1402521148273521507
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1553,7 +1521,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5931429319204707014
+--- !u!114 &1865975613472428186
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1562,13 +1530,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 5963149467012010320}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9a8821c4e89307409d4dce9f41d9f4b, type: 3}
+  m_Script: {fileID: 11500000, guid: f4e9bdbb6c83ea24db43e5c2eb918025, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6409195614962457621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5963149467012010320}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abbdc5655f053ee41bd923aa6cbc5eef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseSpeed: 0
+  horizontalSpeed: 0
+  centerRotation: {fileID: 0}
+--- !u!114 &5799253035912629362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5963149467012010320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0892a0c94bb56614fa6ee9e2f1de2924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
   runSpeed: 0
   rb: {fileID: 0}
---- !u!114 &5544230382805271217
+--- !u!114 &8627502339691951319
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1577,9 +1572,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5963149467012010320}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6a926720a47f294c8dbdc605f46c45f, type: 3}
+  m_Script: {fileID: 11500000, guid: 12d3dbbad766e5541a72c38f2badde1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aceleration: 2
+  deceleration: 2
 --- !u!1 &6611012306963334177
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ public class PlayerRotation : MonoBehaviour
     private void Start()
     {
         mouseSpeed = 2.5f;
-        horizontalSpeed = 0.25f;
+        horizontalSpeed = 0.1f;
     }
 
     void Update()
